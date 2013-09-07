@@ -10,6 +10,10 @@ $(function(){
             Escribir();
         }
     });
+    
+    $('#aLeer').tap(function(){
+        Leer();
+    });
 });
 
 
