@@ -17,6 +17,7 @@ function leerContactos(){
 function contactos() {
     // find all contacts with 'Bob' in any name field
     var options = new ContactFindOptions();
+    options.filter = "Mariela";
     var fields = ["phoneNumbers","name"];
     navigator.contacts.find(fields, leidos, onError1, options);
 }
