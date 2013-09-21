@@ -4,6 +4,10 @@ $(function(){
     $('#cListar').tap(function(){
         leerContactos();
     });
+    
+    $('#ncSend').tap(function(){
+        nuevoContacto($('#ncNom').val(),$('#ncTel').val(),$('#ncMail').val());
+    });
 });
 
 
@@ -40,4 +44,41 @@ function leidos(contacts) {
 
 function onError1(contactError) {
     alert('onError!');
+}
+
+function nuevoContacto(nom,tel,mail){
+ document.addEventListener("deviceready",function(){
+     datosContacto(nom,tel,mail);
+ },false);
+}
+
+//Crear módulo de nuevo contacto
+function datosContacto(nom,tel,mail){
+    var contacto = navigator.contacs.create();
+    contacto.displayName = nom;
+    contacto.nickName = nom;
+    var nombre = new ContacName();
+    nombre.givenName = nom;
+    nombre.familyName = "Prueba";
+    contacto.name = nombre;
+    var telefonos = [];
+    telefonos[0]. new ContactField("home",tel,true);
+    contacto.phoneNumbers = telefonos;
+    var correos = [];
+    correos[0] = new ContactField("personal",mail,true);
+    contacto.emails = correos;
+    
+    contacto.save(nuevoCorrecto,nuevoError);
+}
+
+function nuevoError(error){
+    alert('Error: ' + err.code);
+}
+
+function nuevoCorrecto(){
+    alert('Contacto creado satisfactoriamente');
+    $('#ncNom').val('');
+    $('#ncTel').val('');
+    $('#ncMail').val('');
+    window.history.back();
 }
