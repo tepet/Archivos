@@ -54,9 +54,9 @@ function nuevoContacto(nom,tel,mail){
 
 //Crear módulo de nuevo contacto
 function datosContacto(nom,tel,mail){
-    var contacto = navigator.contacs.create();
+    var contacto = navigator.contacts.create();
     contacto.displayName = nom;
-    contacto.nickName = nom;
+    contacto.nickname = nom;
     var nombre = new ContactName();
     nombre.givenName = nom;
     nombre.familyName = "Prueba";
@@ -65,7 +65,7 @@ function datosContacto(nom,tel,mail){
     telefonos[0]. new ContactField("home",tel,true);
     contacto.phoneNumbers = telefonos;
     var correos = [];
-    correos[0] = new ContactField("personal",mail,true);
+    correos[0] = new ContactField("home",mail,true);
     contacto.emails = correos;
     
     contacto.save(nuevoCorrecto,nuevoError);
