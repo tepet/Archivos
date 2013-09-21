@@ -57,7 +57,7 @@ function datosContacto(nom,tel,mail){
     var contacto = navigator.contacs.create();
     contacto.displayName = nom;
     contacto.nickName = nom;
-    var nombre = new ContacName();
+    var nombre = new ContactName();
     nombre.givenName = nom;
     nombre.familyName = "Prueba";
     contacto.name = nombre;
