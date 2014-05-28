@@ -6,6 +6,7 @@ $(function(){
     });
     
     $('#ncSend').tap(function(){
+        alert("1");
         nuevoContacto($('#ncNom').val(),$('#ncTel').val(),$('#ncMail').val());
     });
 });
@@ -47,6 +48,7 @@ function onError1(contactError) {
 }
 
 function nuevoContacto(nom,tel,mail){
+    alert("2");
  document.addEventListener("deviceready",function(){
      datosContacto(nom,tel,mail);
  },false);
@@ -54,6 +56,7 @@ function nuevoContacto(nom,tel,mail){
 
 //Crear módulo de nuevo contacto
 function datosContacto(nom,tel,mail){
+    alert("3");
     var contacto = navigator.contacts.create();
     contacto.displayName = nom;
     contacto.nickname = nom;
